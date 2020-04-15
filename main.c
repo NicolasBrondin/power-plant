@@ -48,17 +48,18 @@ void loop() {
     }
 
     if(soilMoisture < 550 && !waterTankEmpty){
-      analogWrite(waterPumpPowerPin, 1024);
-      Serial.println("Pump: on");
+        analogWrite(waterPumpPowerPin, 1024);
+        Serial.println("Pump: on");
     } else {
         digitalWrite(waterPumpPowerPin, LOW);
         Serial.println("Pump: off");
     }
    
+    long dl = 1000;
+    delay(dl);
     //This 1 second timefrme is used so you can test the sensor and see it change in real-time.
     //For in-plant applications, you will want to take readings much less frequently.
-    long dl = 3600000;
-    delay(dl);//take a reading every second
+    //take a reading every second
 }
 
 //This is a function used to get the soil moisture content
